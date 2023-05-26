@@ -31,6 +31,7 @@ const App = () => {
       completed: false,
       id: nanoid(),
     };
+    
     const newItems = [...items, newItem];
     setItems(newItems);
     setLocalStorage(newItems);
