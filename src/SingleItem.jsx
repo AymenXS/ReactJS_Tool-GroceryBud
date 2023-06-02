@@ -1,20 +1,25 @@
-import { useState } from 'react';
+import { ImBin2 } from 'react-icons/im';
 
-const SingleItem = ({ item, removeItem, editItem }) => {
+const SingleItem = ({ name, completed, id, removeItem, editItem }) => {
   return (
     <div className="single-item">
       <input
         type="checkbox"
-        name=""
-        id=""
-        checked={item.completed}
-        onChange={() => editItem(item.id)}
+        checked={completed}
+        onChange={() => {
+          editItem(id);
+        }}
       />
-      <p style={{ textTransform: 'capitalize', textDecoration: item.completed && 'line-through' }}>
-        {item.name}
+      <p style={{ textTransform: 'capitalize', textDecoration: completed && 'line-through' }}>
+        {name}
       </p>
-      <button className="btn remove-btn" onClick={() => removeItem(item.id)}>
-        delete
+      <button
+        className="remove-btn"
+        onClick={() => {
+          removeItem(id);
+        }}
+      >
+        <ImBin2 />
       </button>
     </div>
   );
